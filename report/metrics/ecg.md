@@ -2,7 +2,7 @@
 
 ECG views quantify coupling between ECG reference activity and MEG channels.
 
-For execution steps, see [Tutorial](../book/tutorial.md).
+For execution steps, see [Tutorial](../../book/tutorial.md).
 
 ## Subject-report ECG views
 
@@ -16,35 +16,35 @@ For execution steps, see [Tutorial](../book/tutorial.md).
 
 ### 1) ECG quality overview
 
-<img src="../static/04_ECG/01_ecg_overview.png" alt="ECG overview" width="560px">
+<img src="../../static/04_ECG/01_ecg_overview.png" alt="ECG overview" width="560px">
 
 Use this first to verify reference quality before interpreting channel rankings.
 
 ### 2) Raw ECG recording
 
-<img src="../static/04_ECG/04_ecg_recording.png" alt="ECG raw recording" width="860px">
+<img src="../../static/04_ECG/04_ecg_recording.png" alt="ECG raw recording" width="860px">
 
 Confirms cardiac waveform detectability and obvious corruption.
 
 ### 3) Mean R-wave template
 
-<img src="../static/04_ECG/06_ecg_R_mean_wave.png" alt="ECG mean R wave" width="620px">
+<img src="../../static/04_ECG/06_ecg_R_mean_wave.png" alt="ECG mean R wave" width="620px">
 
 A clean template indicates stable event-locked cardiac structure.
 
 ### 4) Channel ranking by contamination
 
-<img src="../static/04_ECG/02_ecg_most_affected_channels.png" alt="Most affected ECG channels" width="860px">
+<img src="../../static/04_ECG/02_ecg_most_affected_channels.png" alt="Most affected ECG channels" width="860px">
 
-<img src="../static/04_ECG/03_ecg_medium_affected_channels.png" alt="Mid affected ECG channels" width="860px">
+<img src="../../static/04_ECG/03_ecg_medium_affected_channels.png" alt="Mid affected ECG channels" width="860px">
 
-<img src="../static/04_ECG/05_ecg_least_affected.png" alt="Least affected ECG channels" width="620px">
+<img src="../../static/04_ECG/05_ecg_least_affected.png" alt="Least affected ECG channels" width="620px">
 
 Ranking separates high, medium, and low contamination channel sets.
 
 ### 5) ECG contamination topomap
 
-<img src="../static/04_ECG/07_ecg_topomap.png" alt="ECG topomap" width="800px">
+<img src="../../static/04_ECG/07_ecg_topomap.png" alt="ECG topomap" width="800px">
 
 Shows spatial concentration of ECG coupling burden.
 

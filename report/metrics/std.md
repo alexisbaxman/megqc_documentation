@@ -2,7 +2,7 @@
 
 Standard deviation (STD) quantifies signal variability amplitude. In MEGqc, STD is used to detect noisy/flat channels and temporal non-stationarity.
 
-For execution steps, see [Tutorial](../book/tutorial.md).
+For execution steps, see [Tutorial](../../book/tutorial.md).
 
 ## Subject-report STD views
 
@@ -14,7 +14,7 @@ For execution steps, see [Tutorial](../book/tutorial.md).
 
 ### 1) Channel-wise STD topomap (3D)
 
-<img src="../static/01_std/01_std_entire_timeseries.png" alt="STD topomap" width="860px">
+<img src="../../static/01_std/01_std_entire_timeseries.png" alt="STD topomap" width="860px">
 
 Interpretation:
 
@@ -24,7 +24,7 @@ Interpretation:
 
 ### 2) Channel-wise STD distribution
 
-<img src="../static/01_std/02_std_over_sensors.png" alt="STD distribution" width="860px">
+<img src="../../static/01_std/02_std_over_sensors.png" alt="STD distribution" width="860px">
 
 Interpretation:
 
@@ -34,7 +34,7 @@ Interpretation:
 
 ### 3) Channel × epoch heatmap
 
-<img src="../static/01_std/03_std_over_epochs.png" alt="STD heatmap" width="860px">
+<img src="../../static/01_std/03_std_over_epochs.png" alt="STD heatmap" width="860px">
 
 Interpretation details:
 

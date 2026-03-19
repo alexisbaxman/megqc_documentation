@@ -2,7 +2,7 @@
 
 Power spectral density (PSD) views characterize frequency-domain burden and are used to detect narrowband interference (for example mains harmonics) and broad-band contamination.
 
-For execution steps, see [Tutorial](../book/tutorial.md).
+For execution steps, see [Tutorial](../../book/tutorial.md).
 
 ## Subject-report PSD views
 
@@ -15,7 +15,7 @@ For execution steps, see [Tutorial](../book/tutorial.md).
 
 ### 1) PSD SNR summary
 
-<img src="../static/02_PSD/02_psd_welch_periodogram.png" alt="PSD SNR" width="860px">
+<img src="../../static/02_PSD/02_psd_welch_periodogram.png" alt="PSD SNR" width="860px">
 
 Interpretation:
 
@@ -24,7 +24,7 @@ Interpretation:
 
 ### 2) Welch PSD detail by channel
 
-<img src="../static/02_PSD/03_psd_welch_detail.png" alt="PSD curves by channel" width="860px">
+<img src="../../static/02_PSD/03_psd_welch_detail.png" alt="PSD curves by channel" width="860px">
 
 Interpretation:
 
@@ -34,19 +34,19 @@ Interpretation:
 
 Interactive controls:
 
-<img src="../static/gifs/03_psd/01_log.gif" alt="PSD axis controls" width="760px">
+<img src="../../static/gifs/03_psd/01_log.gif" alt="PSD axis controls" width="760px">
 
-<img src="../static/gifs/03_psd/02_section.gif" alt="PSD legend-based channel selection" width="760px">
+<img src="../../static/gifs/03_psd/02_section.gif" alt="PSD legend-based channel selection" width="760px">
 
 ### 3) PSD topomap
 
-<img src="../static/02_PSD/04_psd_band_power.png" alt="PSD topomap" width="860px">
+<img src="../../static/02_PSD/04_psd_band_power.png" alt="PSD topomap" width="860px">
 
 Shows where PSD burden is strongest in sensor space.
 
 ### 4) Relative area by bands
 
-<img src="../static/02_PSD/05_psd_noise_frequencies.png" alt="PSD relative band amplitude" width="860px">
+<img src="../../static/02_PSD/05_psd_noise_frequencies.png" alt="PSD relative band amplitude" width="860px">
 
 Shows proportion of spectral energy in standard frequency bands and `other`.
 

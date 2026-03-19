@@ -2,7 +2,7 @@
 
 Peak-to-peak (PtP) amplitude is `max(signal) - min(signal)` over the analyzed interval. It emphasizes transient excursions and outlier bursts.
 
-For execution steps, see [Tutorial](../book/tutorial.md).
+For execution steps, see [Tutorial](../../book/tutorial.md).
 
 ## Subject-report PtP views
 
@@ -14,7 +14,7 @@ For execution steps, see [Tutorial](../book/tutorial.md).
 
 ### 1) Channel-wise PtP topomap (3D)
 
-<img src="../static/03_PtP/01_ptp_entire_timeseries.png" alt="PtP topomap" width="860px">
+<img src="../../static/03_PtP/01_ptp_entire_timeseries.png" alt="PtP topomap" width="860px">
 
 Interpretation:
 
@@ -23,7 +23,7 @@ Interpretation:
 
 ### 2) Channel-wise PtP distribution
 
-<img src="../static/03_PtP/02_ptp_over_sensors.png" alt="PtP distribution" width="860px">
+<img src="../../static/03_PtP/02_ptp_over_sensors.png" alt="PtP distribution" width="860px">
 
 Interpretation:
 
@@ -32,7 +32,7 @@ Interpretation:
 
 ### 3) Channel × epoch heatmap
 
-<img src="../static/03_PtP/03_ptp_over_epochs.png" alt="PtP heatmap" width="860px">
+<img src="../../static/03_PtP/03_ptp_over_epochs.png" alt="PtP heatmap" width="860px">
 
 Interpretation:
 

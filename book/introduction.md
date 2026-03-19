@@ -36,20 +36,20 @@ The different calculation modules within MEGqc are called `metrics` and they are
 
 1. **Channel Variability**
    
-   - **Standard Deviation (STD) of the Data:** Measures the variability of each channel. Channels with unusual high or low STD compared to others, might indicate very noisy or flat channels. [Link to the report](../report/std.md).
-   - **Peak-to-Peak (PtP) Amplitude (manual calculation):** It provides a measure of the total range of variation of the data across the sensors, and can help identify abnormal channels. [Link to the report](../report/ptp.md).
+   - **Standard Deviation (STD) of the Data:** Measures the variability of each channel. Channels with unusual high or low STD compared to others, might indicate very noisy or flat channels. [Link to the report](../report/metrics/std.md).
+   - **Peak-to-Peak (PtP) Amplitude (manual calculation):** It provides a measure of the total range of variation of the data across the sensors, and can help identify abnormal channels. [Link to the report](../report/metrics/ptp.md).
 
 
 2. **Physiological Artifact Correlation**
    
-   - **Electrocardiogram (ECG):** Detects correlated noise caused by cardiac activity. [Link to the report](../report/ecg.md).
-   - **Electrooculography (EOG):** Detects correlated noise caused by eye movements. [Link to the report](../report/eog.md).
+   - **Electrocardiogram (ECG):** Detects correlated noise caused by cardiac activity. [Link to the report](../report/metrics/ecg.md).
+   - **Electrooculography (EOG):** Detects correlated noise caused by eye movements. [Link to the report](../report/metrics/eog.md).
 
-3. **Muscle Artifacts:** Identifies high-frequency bursts from body movements, for example, when the subject clenches their jaw. [Link to the report](../report/muscle.md).
+3. **Muscle Artifacts:** Identifies high-frequency bursts from body movements, for example, when the subject clenches their jaw. [Link to the report](../report/metrics/muscle.md).
 
-4. **Power Spectral Density (PSD) Assessment:** It provides information on the strength of different frequency components of a signal. PSD calculation helps us to distinguish between brain activity and non-brain-related noise, for example, line noise or environmental noise. [Link to the report](../report/psd.md).
+4. **Power Spectral Density (PSD) Assessment:** It provides information on the strength of different frequency components of a signal. PSD calculation helps us to distinguish between brain activity and non-brain-related noise, for example, line noise or environmental noise. [Link to the report](../report/metrics/psd.md).
 
-5. **Head Position and Movement:** Evaluates head movement during the recording using continuous head position indicator (cHPI) data. Disabled by default because cHPI data is not always available. [Link to the report](../report/head.md).
+5. **Head Position and Movement:** Evaluates head movement during the recording using continuous head position indicator (cHPI) data. Disabled by default because cHPI data is not always available. [Link to the report](../report/metrics/head.md).
 
 ## Next section
 In the next section, we'll walk through the content of the HTML reports.

@@ -2,7 +2,7 @@
 
 Muscle metrics summarize high-frequency contamination and event-like bursts.
 
-For execution steps, see [Tutorial](../book/tutorial.md).
+For execution steps, see [Tutorial](../../book/tutorial.md).
 
 ## Subject-report muscle views
 
@@ -13,11 +13,11 @@ For execution steps, see [Tutorial](../book/tutorial.md).
 
 ### 1) Muscle overview
 
-<img src="../static/06_Muscle/01_muscle_overview.png" alt="Muscle overview" width="860px">
+<img src="../../static/06_Muscle/01_muscle_overview.png" alt="Muscle overview" width="860px">
 
 ### 2) Muscle event panel
 
-<img src="../static/06_Muscle/02_muscle_events.png" alt="Muscle events" width="860px">
+<img src="../../static/06_Muscle/02_muscle_events.png" alt="Muscle events" width="860px">
 
 Interpretation:
 

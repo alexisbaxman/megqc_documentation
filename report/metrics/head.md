@@ -2,7 +2,7 @@
 
 Head metric summarizes movement behavior using continuous head position indicator (cHPI) information when available.
 
-For execution steps, see [Tutorial](../book/tutorial.md).
+For execution steps, see [Tutorial](../../book/tutorial.md).
 
 ```{admonition} cHPI required
 :class: warning
@@ -13,7 +13,7 @@ If cHPI traces are unavailable, Head outputs are not generated.
 
 ## Subject-report head view
 
-<img src="../static/07_Head/01_head_position.png" alt="Head movement summary" width="860px">
+<img src="../../static/07_Head/01_head_position.png" alt="Head movement summary" width="860px">
 
 What this panel is used for:
 

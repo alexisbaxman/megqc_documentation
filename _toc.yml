@@ -5,15 +5,6 @@ chapters:
 - file: book/report
   sections:
     - file: report/qa_subject
-    - file: report/basic
-    - file: report/std
-    - file: report/ptp
-    - file: report/psd
-    - file: report/ecg
-    - file: report/eog
-    - file: report/muscle
-    - file: report/head
-    - file: report/stim
     - file: report/qa_group
     - file: report/qc_group
     - file: report/multisample

@@ -2,11 +2,11 @@
 
 Stimulus view summarizes detected trigger channels and event structure used for epoching.
 
-For execution steps, see [Tutorial](../book/tutorial.md).
+For execution steps, see [Tutorial](../../book/tutorial.md).
 
 ## Subject-report stimulus view
 
-<img src="../static/08_STIM/01_stim_channels.png" alt="Stimulus channel overview" width="860px">
+<img src="../../static/08_STIM/01_stim_channels.png" alt="Stimulus channel overview" width="860px">
 
 What is shown:
 
