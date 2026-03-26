@@ -1,6 +1,6 @@
 # HTML Reports Overview
 
-MEGqc produces interactive HTML reports. Figures are lazy-rendered when the tab is opened to keep large reports responsive. The reports can be generated at four scopes:
+MEGqc produces interactive HTML reports. Figures are "lazy-rendered", only the active tab's content is rendered, this keep large reports responsive and avoid lagging. The reports can be generated at four scopes. In the following sections we will cover each of them:
 
 1. **[QA Subject reports](../report/qa_subject.md)** (per subject)
 2. **[QA Group reports](../report/qa_group.md)** (per dataset)
@@ -28,6 +28,8 @@ All reports are structured in a _"nested-tab-hierarchy"_.
 
 
 <img src="../static/00_overview/03_general_tabs.jpg" alt="tabs" width="600px" align="center">
+
+
 
 
 ```{admonition} Next pages

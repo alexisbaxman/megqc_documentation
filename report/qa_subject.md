@@ -190,6 +190,7 @@ This plot shows the relative amplitude of specific frequency bands (e.g., alpha,
 
 First, MEGqc will display some basic notes, such as the name of the ECG channel, and the overall quality, including whether peaks have similar amplitudes, if there were any breaks (too long distance between peaks), the presence of bursts (too short distance between peaks) and whether if it shows the expected ECG pattern. It also gives you the total number of ECG detected (peaks) and the average heart beats per minute.
 
+
 Apart from the MAG and GRAD sub-tabs, there is a `General` sub-tab that contains visualizations of the ECG signal itself, which can be useful to check the quality of the ECG signal and the accuracy of the peak detection.
 
 ### General sub-tab
@@ -221,9 +222,12 @@ As in other plots, the signals are color-coded by lobe and you can de-select spe
 <img src="../static/qa_subject/ecg/4_ecg_highest.gif" alt="ecg highest" width="700px">
 
 
+A high percentage of affected channels indicates a stronger need for cardiac-artifact handling. Task-specific shifts can reflect condition-dependent sensitivity to contamination. If reference signal quality is poor, interpret the estimated ECG burden with caution. ECG contamination patterns tend to be similar across MAG and GRAD sensors, though their spatial distribution may vary slightly. The QC summary provides compact, run-level metrics to support quick assessment across datasets.
+
 
 ## Electrooculography (EOG) tab
 Similar to the ECG tab, MEGqc will display some basic notes about the EOG channel, such as the name of the EOG channel, whether if it shows the expected EOG shape, number of EOG events detected and blink rate per minute. 
+
 Alongside the MAG and GRAD sub-tabs, in the `General` sub-tab you can find visualizations of the EOG signal itself.
 
 ## General sub-tab
@@ -236,7 +240,8 @@ It contain a general visualization of the EOG signal itself (blue) and the detec
 ## MAG & GRAD sub-tabs
 These sub-tabs show how the EOG artifacts affects each type of MEG sensors. 
 
-* **Channel-wise EOG topomap (3D):** This plot shows the spatial distribution of EOG artifacts across the head. Sensors are color-coded by their average EOG artifact amplitude. This allows you to quickly identify hot areas of ocular contamination. As in other topomaps, you can use the `cap on` function and you can hover over sensors to see their name and EOG artifact amplitude.
+* **Channel-wise EOG topomap (3D):** This plot shows the spatial distribution of EOG artifacts across the head. Sensors are color-coded by their average EOG artifact amplitude. This allows you to quickly identify hot areas of ocular contamination. As in other topomaps, you can use the `cap on` function and you can hover over sensors to see their name and EOG artifact amplitude. 
+
 
 <img src="../static/qa_subject/eog/1_affected.gif" alt="quality" width="700px">
 
@@ -244,10 +249,37 @@ These sub-tabs show how the EOG artifacts affects each type of MEG sensors.
 
 <img src="../static/qa_subject/eog/2_topo.gif" alt="general" width="700px">
 
+EOG contamination typically produces its strongest effects in frontal sensors. Broad high coupling values suggest a strong blink/ocular burden. Although anteriorly concentrated topographic maps are expected for EOG artifacts, it is still important to quantify the burden to support consistent thresholding. Always interpret EOG load together with task timing and behavioral context before making exclusion decisions.
 
 ## Muscle tab
 
+This metric shows high frequency artifacts in range between 110-140 Hz. High power in this frequency band compared to the rest of the signal is strongly correlated with muscles artifacts, as suggested by MNE. However, high frequency oscillations may also occur in this range for reasons other than muscle activity (for example, in an empty room recording).
+
+For this data file artifact detection was performed on magnetometers, they are more sensitive to muscle activity than gradiometers.
+
+<img src="../static/qa_subject/muscle_1.gif" alt="general" width="700px">
+
+As with other figures, you can modify the size of the line and the text size of the axis labels, or hide and show different components.
+
+<img src="../static/qa_subject/muscle_2.gif" alt="general" width="700px">
+
+
 ## Head tab
+
+
+Head metric summarizes movement behavior using continuous head position indicator (`cHPI`) information when available.
+
+```{admonition} cHPI required
+:class: warning
+
+If cHPI traces are unavailable, Head outputs are not generated.
+
+```
+
+<img src="../static/07_Head/01_head_position.png" alt="Head movement summary" width="860px">
+
+This figure quantifies overall movement magnitude across the recording in every direction (`x`, `q1`, `y`, `q2`, `z`, `q3`). It helps you identify segments with exessive movement. High movement can degrade data quality and may require exclusion or correction. 
+
 
 ## Stimulus tab
 
@@ -255,35 +287,46 @@ MEGqc can also read the stimulus events from the raw files and provide some basi
 
 * **Stimulus Epoch summary table:** MEGqc will first try to read the events from the BIDS `_events.tsv` files, which are obtained from the onset within the task. They are usually more accurate and complete than the events obtained from the stim channel, which are based on hardware triggers. This table shows how many of the events detected were used for the epochs calculation.
 
-<img src="../static/qa_subject/ecg/01_events_bids_summmary.jpg" alt="events summary" width="500px">
+<img src="../static/qa_subject/events/01_events_bids_summmary.jpg" alt="events summary" width="500px">
 
 If the BIDS events files are not available, MEGqc will fall back to reading the events from the raw files. If there is not a trial type, that column will remain empty.
 
 * **Stimulus Stim channel events:** Each row is a physical stim channel and every column is a trigger ID. Each cell has the count of times every trigger appears. This should be consistent with the events summary table, but it can reveal additional information about the quality of the stimulus events. For example, if there are many events in the stim channel that do not appear in the BIDS events file, it may indicate that some events were missed during manual annotation. Conversely, if there are many events in the BIDS file that do not appear in the stim channel, it may indicate that some events were incorrectly annotated or that there were hardware issues during recording.
 
-<img src="../static/qa_subject/ecg/02_stim_channel.jpg" alt="stim channel" width="500px">
+<img src="../static/qa_subject/events/02_stim_channel.jpg" alt="stim channel" width="500px">
 
 * **Stimulus BIDS events summary:** The events summary table shows the count of each event ID and trial type (if available) for each run/task. This can help you to check whether the expected number of events are present and whether the trial types are correctly annotated.
 
-<img src="../static/qa_subject/ecg/03_events_summary.jpg" alt="events summary" width="500px">
+<img src="../static/qa_subject/events/03_events_summary.jpg" alt="events summary" width="500px">
 
 * **Stimulus Event timeline:** This plot shows the timeline of events, with different colors representing different event IDs or trial types. This can help you to check the temporal distribution of events and identify any irregularities, such as missing events, unexpected event timings, or clustering of events. For the epoch calculation, if some events are too close to each other, they may be merged into a single epoch. This plot can help you to identify such cases and decide whether to adjust the epoching parameters or to manually inspect the events. The stimulus channel also appears, even though it's not expressed in time, in this example is the red dot at the bottom of the plot.
 
-<img src="../static/qa_subject/ecg/04_event_timeline.jpg" alt="events timeline" width="500px">
+<img src="../static/qa_subject/events/04_event_timeline.jpg" alt="events timeline" width="500px">
 
 * **Count bar chart:** This plot shows the count of each event ID or trial type for each run/task in a bar chart format. This can help you to quickly compare the number of events across runs and tasks, and identify any discrepancies or unexpected patterns.
 
-<img src="../static/qa_subject/ecg/05_bar_chart.jpg" alt="bar chart" width="500px">
+<img src="../static/qa_subject/events/05_bar_chart.jpg" alt="bar chart" width="500px">
 
 * **Stimulus**: It shows the timeline of events within the stimulus channel, with different colors representing different trigger IDs. This can help you to compare with the BIDS events timeline and check for consistency. It can also reveal any irregularities in the stimulus channel, such as missing triggers, unexpected trigger timings, or clustering of triggers. There is a subtab per stimulus channel, in case there are more than one.
 
-<img src="../static/qa_subject/ecg/06_sti_timeline.jpg" alt="sti timeline" width="500px">
+<img src="../static/qa_subject/events/06_sti_timeline.jpg" alt="sti timeline" width="500px">
+
+
+## QC summary tab
+
+Finally, the subject report includes a `QC summary` tab that provides a compact and metric-wise summary of the quality assessment results across each run and task. This tab is designed to support quick triage and decision-making by summarizing key findings from each metric in a concise format. It is divided in several subtabs:
+
+* **Global Quality Index (GQI) subtab:** * This subtab shows the GQI scores for each run and task, which are calculated based on the combination of different quality metrics and their thresholds. If you want to learn more about how the GQI is calculated, you can check the [GQI documentation](https://ancplaboldenburg.github.io/megqc_documentation/extra/gqi.html). The GQI provides an overall quality score that can help you to quickly assess the quality of each run and task, and to compare them across subjects or datasets. 
+
+* **PSD/ECG/EOG/STD/PtP/Muscle/Head/Stimulus subtabs:** These subtabs provide a summary of the key findings from each metric, including quality issues that were identified in specific channels and epochs. 
 
 
 
-## QC summary tab (what it contains)
+```{admonition} Next pages
 
+In the next subsections we'll go through the group QA report, every metric and how their different visualizations can be interpreted.
 
+```
 
 
 <!--
