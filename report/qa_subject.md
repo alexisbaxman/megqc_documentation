@@ -78,12 +78,18 @@ You can interact with the 3D scene as in the Overview tab: You can rotate the he
 
 <img src="../static/qa_subject/std/1_rotate_hover.gif" alt="Rotate std" width="700px">
 
+You can also use the menu below to add a solid cap representation of the head, which can help to contextualize sensor locations and their variability patterns.
+
+<img src="../static/qa_subject/std/02_cap_on.gif" alt="cap on std" width="700px">
+
 
 ### 2) Channel-wise STD distribution
 This plot shows the distribution of STD values across channels. The shape of the distribution can reveal whether variability is widespread or concentrated in a few channels.
 * Every dot represents one channel, you can see the name and STD value on hover _(e.g., MEG0211: 4.37e-13)_. The x-axis shows you the range of STD values in Tesla, extreme left-values (close to zero) indicate flat channels, while extreme right-values indicate highly variable channels. The position on the Y-axis do not hold information. The channels dot are color-coded by lobe group.
 
 <img src="../static/qa_subject/std/3_hover.gif" alt="hover" width="700px">
+
+* As with other plots, you can click on the legend items to hide/show lobe groups, which can help to identify whether variability is concentrated in specific brain regions. If you double-click on a legend item, you can isolate one lobe group, which can help to focus on specific regions of interest.
 
 <img src="../static/qa_subject/std/4_legend.gif" alt="legend" width="700px">
 
@@ -138,7 +144,7 @@ This metric shows different excursion amplitude views, to locate transient burst
 
 * You can also use the menu below to increase the line thickness and text size of the heatmap and profiles, to make it easier to read.
 
-<img src="../static/qa_subject/ptp/7_lines.gif" alt="lines" width="700px">
+<img src="../static/qa_subject/ptp/7_size.gif" alt="size lines" width="700px">
 
 * Persistently high PtP values are bad-channel candidates, sparse high-PtP epochs can be rejected selectively. Mixed patterns should be cross-checked with STD and PSD before hard exclusion.
 
@@ -181,21 +187,62 @@ This plot shows the relative amplitude of specific frequency bands (e.g., alpha,
 
 
 ## Electrocardiogram (ECG) tab
-<img src="../static/qa_subject/ecg/1_quality_overview.jpg" alt="quality" width="500px">
+
+First, MEGqc will display some basic notes, such as the name of the ECG channel, and the overall quality, including whether peaks have similar amplitudes, if there were any breaks (too long distance between peaks), the presence of bursts (too short distance between peaks) and whether if it shows the expected ECG pattern. It also gives you the total number of ECG detected (peaks) and the average heart beats per minute.
+
+Apart from the MAG and GRAD sub-tabs, there is a `General` sub-tab that contains visualizations of the ECG signal itself, which can be useful to check the quality of the ECG signal and the accuracy of the peak detection.
+
+### General sub-tab
+
+In  this tab, you can find general visualizations of the ECG channel, such as the raw signal over time (in blue) and the detected peaks(red dots). You can zoom-in on specific time segments to check the quality of the ECG signal and the accuracy of the peak detection. On-hover you can see the time and amplitude. You can also increase the size of the line and the dots.
+
 <img src="../static/qa_subject/ecg/5_ecg_general.gif" alt="general" width="700px">
+
+You can also see the average waveform around the peaks, and a shifted version of the same waveform aligned with the MEG channels. 
+
 <img src="../static/qa_subject/ecg/ecg_6_waveform.gif" alt="waveform" width="700px">
 
+
+### MAG & GRAD sub-tabs
+
+In this sub-tabs you can see how the ECG artifacts affects0 the MEG sensors.
+
+* **Channel-wise ECG topomap (3D):** This plot shows the spatial distribution of ECG artifacts across the head. Sensors are color-coded by their average ECG artifact amplitude. This allows you to quickly identify hot areas of cardiac contamination. As in other topomaps, you can use the `cap on` function and you can hover over sensors to see their name and ECG artifact amplitude.
+
 <img src="../static/qa_subject/ecg/2_topo.gif" alt="ecg topo" width="700px">
+
+
+* **Correlation-magnitude channels:** There are three plots showing the correlation between the ECG signal and the MEG channels, sorted by magnitude (highest, middle and lowest). This can help you to identify which channels are most affected by cardiac artifacts. 
+
 <img src="../static/qa_subject/ecg/3_ecg_three.gif" alt="ecg three" width="700px">
+
+As in other plots, the signals are color-coded by lobe and you can de-select specific lobes or isolate them by clicking on the legend. You can also zoom-in on specific time segments, increase the line thickness and the text size of the axis labels, to make it easier to read.
+
 <img src="../static/qa_subject/ecg/4_ecg_highest.gif" alt="ecg highest" width="700px">
 
 
 
 ## Electrooculography (EOG) tab
-<img src="../static/qa_subject/eog/1_affected.gif" alt="quality" width="500px">
-<img src="../static/qa_subject/eog/2_topo.gif" alt="general" width="700px">
+Similar to the ECG tab, MEGqc will display some basic notes about the EOG channel, such as the name of the EOG channel, whether if it shows the expected EOG shape, number of EOG events detected and blink rate per minute. 
+Alongside the MAG and GRAD sub-tabs, in the `General` sub-tab you can find visualizations of the EOG signal itself.
+
+## General sub-tab
+
+It contain a general visualization of the EOG signal itself (blue) and the detected peaks (red dots). You can also see the average recorded blink signal.
+
 <img src="../static/qa_subject/eog/3_general.gif" alt="waveform" width="700px">
 <img src="../static/qa_subject/eog/4_waveform.gif" alt="ecg topo" width="700px">
+
+## MAG & GRAD sub-tabs
+These sub-tabs show how the EOG artifacts affects each type of MEG sensors. 
+
+* **Channel-wise EOG topomap (3D):** This plot shows the spatial distribution of EOG artifacts across the head. Sensors are color-coded by their average EOG artifact amplitude. This allows you to quickly identify hot areas of ocular contamination. As in other topomaps, you can use the `cap on` function and you can hover over sensors to see their name and EOG artifact amplitude.
+
+<img src="../static/qa_subject/eog/1_affected.gif" alt="quality" width="700px">
+
+* **Correlation-magnitude channels:** There are three plots showing the correlation between the EOG signal and the MEG channels, sorted by magnitude (highest, middle and lowest). This can help you to identify which channels are most affected by ocular artifacts.
+
+<img src="../static/qa_subject/eog/2_topo.gif" alt="general" width="700px">
 
 
 ## Muscle tab
@@ -203,6 +250,36 @@ This plot shows the relative amplitude of specific frequency bands (e.g., alpha,
 ## Head tab
 
 ## Stimulus tab
+
+MEGqc can also read the stimulus events from the raw files and provide some basic visualizations to check their quality. This is important because stimulus events are often used for epoching and analysis, and their quality can affect the results.
+
+* **Stimulus Epoch summary table:** MEGqc will first try to read the events from the BIDS `_events.tsv` files, which are obtained from the onset within the task. They are usually more accurate and complete than the events obtained from the stim channel, which are based on hardware triggers. This table shows how many of the events detected were used for the epochs calculation.
+
+<img src="../static/qa_subject/ecg/01_events_bids_summmary.jpg" alt="events summary" width="500px">
+
+If the BIDS events files are not available, MEGqc will fall back to reading the events from the raw files. If there is not a trial type, that column will remain empty.
+
+* **Stimulus Stim channel events:** Each row is a physical stim channel and every column is a trigger ID. Each cell has the count of times every trigger appears. This should be consistent with the events summary table, but it can reveal additional information about the quality of the stimulus events. For example, if there are many events in the stim channel that do not appear in the BIDS events file, it may indicate that some events were missed during manual annotation. Conversely, if there are many events in the BIDS file that do not appear in the stim channel, it may indicate that some events were incorrectly annotated or that there were hardware issues during recording.
+
+<img src="../static/qa_subject/ecg/02_stim_channel.jpg" alt="stim channel" width="500px">
+
+* **Stimulus BIDS events summary:** The events summary table shows the count of each event ID and trial type (if available) for each run/task. This can help you to check whether the expected number of events are present and whether the trial types are correctly annotated.
+
+<img src="../static/qa_subject/ecg/03_events_summary.jpg" alt="events summary" width="500px">
+
+* **Stimulus Event timeline:** This plot shows the timeline of events, with different colors representing different event IDs or trial types. This can help you to check the temporal distribution of events and identify any irregularities, such as missing events, unexpected event timings, or clustering of events. For the epoch calculation, if some events are too close to each other, they may be merged into a single epoch. This plot can help you to identify such cases and decide whether to adjust the epoching parameters or to manually inspect the events. The stimulus channel also appears, even though it's not expressed in time, in this example is the red dot at the bottom of the plot.
+
+<img src="../static/qa_subject/ecg/04_event_timeline.jpg" alt="events timeline" width="500px">
+
+* **Count bar chart:** This plot shows the count of each event ID or trial type for each run/task in a bar chart format. This can help you to quickly compare the number of events across runs and tasks, and identify any discrepancies or unexpected patterns.
+
+<img src="../static/qa_subject/ecg/05_bar_chart.jpg" alt="bar chart" width="500px">
+
+* **Stimulus**: It shows the timeline of events within the stimulus channel, with different colors representing different trigger IDs. This can help you to compare with the BIDS events timeline and check for consistency. It can also reveal any irregularities in the stimulus channel, such as missing triggers, unexpected trigger timings, or clustering of triggers. There is a subtab per stimulus channel, in case there are more than one.
+
+<img src="../static/qa_subject/ecg/06_sti_timeline.jpg" alt="sti timeline" width="500px">
+
+
 
 ## QC summary tab (what it contains)
 
