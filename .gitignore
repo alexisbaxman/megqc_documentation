@@ -3,3 +3,6 @@ book/_build/*
 
 # MyST build outputs
 _build
+
+# Large generated HTML files (> 100MB exceeds GitHub limit)
+static/html/*.html
